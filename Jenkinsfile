@@ -47,7 +47,7 @@ pipeline {
         }
         stage('Deploy jar to artifactory') {
             steps {
-                configFileProvider([configFile(fileId: 'ff6f625d-5576-4481-8a22-b40fb251b8c0', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
+                configFileProvider([configFile(fileId: 'ff6f625d-5576-4481-8a22-b40fb251b8c0', variable: 'MAVEN_SETTINGS')]) {
                     sh "mvn -gs $MAVEN_SETTINGS deploy -Dmaven.test.skip=true -e"
                 }
             } 
